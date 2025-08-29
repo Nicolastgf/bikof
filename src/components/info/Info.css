@@ -1,0 +1,23 @@
+.info-hero {
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.info-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 68%, rgba(0,0,0,.45) 100%);
+  z-index: 1;
+}
+
+.info-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+}

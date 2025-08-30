@@ -1,38 +1,46 @@
 import React from "react";
-import "./MegaDropdown.css";
+import "./NavBar.css";
+import { FaBoxOpen, FaMobileAlt, FaMapMarkedAlt } from "react-icons/fa";
 
-const MegaDropdown = ({ section }) => {
-  const content = {
-    "LA APP": [
-      { title: "¿Cómo funciona la app?", desc: "Consigue comida a buen precio mientras ayudás al planeta." },
-      { title: "App en tu zona", desc: "¿Dónde está disponible actualmente?" },
-    ],
-    "PARA EMPRESAS": [
-      { title: "Aliados sostenibles", desc: "Aumentá visibilidad y reducí desperdicio." },
-      { title: "Cómo funciona", desc: "Publicá tus packs sorpresa fácilmente." },
-    ],
-    "SOBRE NOSOTROS": [
-      { title: "Nuestra misión", desc: "Salvar comida y cambiar el sistema alimentario." },
-      { title: "Equipo y visión", desc: "Conocé a quienes están detrás de Bikof." },
-    ],
-    "SOBRE DESPERDICIO ALIMENTARIO": [
-      { title: "Impacto global", desc: "1/3 de la comida se desperdicia en el mundo." },
-      { title: "Consecuencias", desc: "Ambientales, económicas y sociales." },
-    ],
-  };
+const MegaDropdownApp = ({ visible }) => {
+  if (!visible) return null;
 
   return (
     <div className="mega-dropdown">
-      <div className="dropdown-content">
-        {content[section]?.map((item, i) => (
-          <div className="dropdown-item" key={i}>
-            <strong>{item.title}</strong>
-            <p>{item.desc}</p>
+      <div className="dropdown-left">
+        <a href="/como-funciona" className="dropdown-item">
+          <FaMobileAlt className="dropdown-icon" />
+          <div>
+            <h6>¿CÓMO FUNCIONA LA APLICACIÓN?</h6>
+            <p>Accedé a membresías y promociones de calidad a buen precio.</p>
           </div>
-        ))}
+        </a>
+
+        <a href="/membresia" className="dropdown-item">
+          <FaBoxOpen className="dropdown-icon" />
+          <div>
+            <h6>¿CÓMO HACERME MIEMBRO BIKOF?</h6>
+            <p>Pagalo desde la app o llegate a algún punto de locación.</p>
+          </div>
+        </a>
+
+        <a href="/zonas" className="dropdown-item">
+          <FaMapMarkedAlt className="dropdown-icon" />
+          <div>
+            <h6>BIKOF EN MI ZONA</h6>
+            <p>¿Dónde está disponible Bikof ahora mismo?</p>
+          </div>
+        </a>
+      </div>
+
+      <div className="dropdown-right">
+        <h6>LOCALIZA NUESTRAS SUCURSALES</h6>
+        <p>Buscá local para encontrar nuestros beneficios.</p>
+        <a href="/buscar" className="dropdown-link">BUSCAR →</a>
+        <img src="/assets/mockup-app.png" alt="Bikof App" className="dropdown-image" />
       </div>
     </div>
   );
 };
 
-export default MegaDropdown;
+export default MegaDropdownApp;
